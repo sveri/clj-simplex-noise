@@ -21,6 +21,7 @@ public class SimplexNoise {
         int numberOfOctaves=(int)Math.ceil(Math.log10(largestFeature)/Math.log10(2));
 
         octaves=new SimplexNoise_octave[numberOfOctaves];
+
         frequencys=new double[numberOfOctaves];
         amplitudes=new double[numberOfOctaves];
 
@@ -56,21 +57,23 @@ public class SimplexNoise {
 
     }
 
-    public double getNoise(int x,int y, int z){
+//    public double getNoise(int x,int y, int z){
+//
+//        double result=0;
+//
+//        for(int i=0;i<octaves.length;i++){
+//            double frequency = Math.pow(2,i);
+//            double amplitude = Math.pow(persistence,octaves.length-i);
+//
+//            result=result+octaves[i].noise(x/frequency, y/frequency,z/frequency)* amplitude;
+//        }
+//
+//
+//        return result;
+//
+//    }
+//
 
-        double result=0;
-
-        for(int i=0;i<octaves.length;i++){
-            double frequency = Math.pow(2,i);
-            double amplitude = Math.pow(persistence,octaves.length-i);
-
-            result=result+octaves[i].noise(x/frequency, y/frequency,z/frequency)* amplitude;
-        }
-
-
-        return result;
-
-    }
     public static void main(String[] args) {
         SimplexNoise noise = new SimplexNoise(100,0.1,5000);
 
@@ -80,8 +83,8 @@ public class SimplexNoise {
         double yStart=0;
         double yEnd=500;
 
-        int xResolution=200;
-        int yResolution=200;
+        int xResolution=2000;
+        int yResolution=2000;
 
         double[][] result=new double[xResolution][yResolution];
 
